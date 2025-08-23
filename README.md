@@ -63,7 +63,7 @@ PVLib_GUI/
 
 #### 1. Clone repository
 ```bash
-git clone https://github.com/<your-username>/PVLib_data_generator_GUI.git
+git clone https://github.com/vaijayanth-sheri/PVLib_data_generator_GUI.git
 cd PVLib_data_generator_GUI
 ```
 #### 2. Setup Python environment
