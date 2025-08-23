@@ -38,20 +38,23 @@ It provides a clean GUI (built with Streamlit) to fetch, harmonize, and simulate
 ```bash
 PVLib_GUI/
 │
-├── app/ # Frontend logic (Streamlit UI, report generator)
-│ 
-│ ├── report.py # Report generator
+├── .streamlit/
+│ ├──  config.toml
+├── data_cache/
+│ ├──  .gitkeep
+├── app/              
+│ ├── report.py       # Report generator
+├── core/             # Core modeling + utilities
+│ ├── model.py        # PV system definition + PVWatts simulation
+│ ├── adapters.py     # Data fetchers (PVGIS, NASA, EPW/CSV)
+│ ├── irradiance.py   # Derived DNI/DHI calculations
+│ ├── mapping.py      # Column mapping + unit harmonization
+│ ├── cache.py        # Local cache for downloaded data
+│ ├── timeutils.py    # Timezone helpers
 │
-├── core/ # Core modeling + utilities
-│ ├── model.py # PV system definition + PVWatts simulation
-│ ├── adapters.py # Data fetchers (PVGIS, NASA, EPW/CSV)
-│ ├── irradiance.py # Derived DNI/DHI calculations
-│ ├── mapping.py # Column mapping + unit harmonization
-│ ├── cache.py # Local cache for downloaded data
-│ ├── timeutils.py # Timezone helpers
-├── main.py # Main dashboard
-├── requirements.txt # Python dependencies
-├── README.md # This file
+├── main.py           # Main dashboard
+├── requirements.txt  # Python dependencies
+├── README.md  
 ```
 
 ---
