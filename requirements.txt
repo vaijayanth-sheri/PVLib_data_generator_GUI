@@ -1,0 +1,13 @@
+pvlib>=0.13,<0.14
+pandas>=2.1
+numpy>=1.26
+requests>=2.31
+meteostat>=1.6
+geopy>=2.4
+timezonefinder>=6.4
+pyproj>=3.6
+streamlit>=1.36
+matplotlib>=3.8
+reportlab>=4.2
+pyarrow>=16.1
+python-dateutil>=2.9
