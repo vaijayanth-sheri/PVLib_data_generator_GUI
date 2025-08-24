@@ -48,8 +48,14 @@ with st.sidebar:
     }
     st.session_state["step"] = step_map[choice]
 
-def next_step(): st.session_state["step"] = min(st.session_state["step"]+1, 5)
-def prev_step(): st.session_state["step"] = max(st.session_state["step"]-1, 1)
+def next_step():
+    st.session_state["step"] = min(st.session_state["step"] + 1, 5)
+    st.experimental_rerun()  # hard rerender to clear previous widgets
+
+def prev_step():
+    st.session_state["step"] = max(st.session_state["step"] - 1, 1)
+    st.experimental_rerun()
+
 
 # ---------- Step 1: Site, Period & Source (merged) ----------
 if st.session_state["step"] == 1:
@@ -443,3 +449,4 @@ This tool was developed as part of an open-source energy systems engineering pro
 **Author:** Vaijayanth Sheri  
 """)
     st.button("← Back", on_click=prev_step)
+
