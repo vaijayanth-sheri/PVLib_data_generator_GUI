@@ -3,7 +3,7 @@
   "framework": "vite",
   "functions": {
     "api/**/*.py": {
-      "excludeFiles": "node_modules/**"
+      "excludeFiles": "{node_modules/**,**/*/tests/**,**/*/test/**,**/*/__pycache__/**}"
     }
   },
   "rewrites": [
