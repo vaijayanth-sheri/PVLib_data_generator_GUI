@@ -42,11 +42,10 @@ export default function BackgroundCanvas() {
           <path d="M 130 550 L 250 430 L 370 550" strokeWidth="4" />
           
           {/* Solar Panel on Right Roof Pitch (facing sun) */}
-          <polygon points="350,510 290,450 260,480 320,540" fill="rgba(99, 102, 241, 0.05)" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="2" />
+          <polygon points="270,450 330,510 320,500 260,440" fill="rgba(99, 102, 241, 0.05)" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="2" />
           {/* Panel Grid Lines */}
-          <line x1="330" y1="490" x2="280" y2="440" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="1" />
-          <line x1="310" y1="510" x2="260" y2="460" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="1" />
-          <line x1="335" y1="525" x2="275" y2="465" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="1" />
+          <line x1="290" y1="470" x2="280" y2="460" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="1" />
+          <line x1="310" y1="490" x2="300" y2="480" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="1" />
 
           {/* Inverter Box */}
           <rect x="360" y="600" width="30" height="40" rx="3" />

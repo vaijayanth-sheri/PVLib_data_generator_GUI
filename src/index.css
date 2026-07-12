@@ -110,8 +110,14 @@ body {
 }
 
 @keyframes spinSlow {
-  from { transform: rotate(0deg); transform-origin: 950px 180px; }
-  to { transform: rotate(360deg); transform-origin: 950px 180px; }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin-slow {
+  animation: spinSlow 30s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
 .wire-pulse {
@@ -171,9 +177,9 @@ body {
 }
 
 .btn:disabled {
-  background: rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.3);
-  border: 1px dashed rgba(255, 255, 255, 0.2);
+  background: rgba(100, 116, 139, 0.3);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(100, 116, 139, 0.5);
   cursor: not-allowed;
   transform: none;
 }
