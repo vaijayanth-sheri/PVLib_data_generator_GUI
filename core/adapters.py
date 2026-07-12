@@ -3,7 +3,6 @@ from dataclasses import dataclass
 from pathlib import Path
 import pandas as pd
 import requests
-from meteostat import Point, Hourly
 from pvlib import iotools
 from .timeutils import ensure_tz_aware
 from .cache import get_cached_df, set_cached_df
@@ -85,15 +84,7 @@ def fetch_nasa_power_hourly(lat, lon, start, end, tz_name):
     set_cached_df("nasa", key, df)
     return df, SourceMeta("NASA POWER Hourly", {"url": url}, conv, {"dni":"derived","dhi":"derived"})
 
-def fetch_meteostat_patch(lat, lon, start, end, tz_name):
-    loc = Point(lat, lon)
-    data = Hourly(loc, start, end).fetch()
-    ren = {"temp":"temp_air", "wspd":"wind_speed", "pres":"pressure"}
-    df = data.rename(columns=ren)[["temp_air","wind_speed","pressure"]].dropna(how="all")
-    df.index = pd.to_datetime(df.index, utc=True)
-    df = ensure_tz_aware(df, tz_name)
-    df, _ = convert_to_canonical(df)
-    return df
+
 
 def read_epw(file: Path, tz_name: str):
     data, meta = iotools.read_epw(str(file))

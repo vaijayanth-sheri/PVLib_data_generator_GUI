@@ -1,8 +1,9 @@
 import hashlib
+import tempfile
 from pathlib import Path
 import pandas as pd
 
-CACHE_ROOT = Path(__file__).resolve().parents[1] / "data_cache"
+CACHE_ROOT = Path(tempfile.gettempdir()) / "pvlib_data_cache"
 CACHE_ROOT.mkdir(parents=True, exist_ok=True)
 
 def _hash_key(key_parts: dict) -> str:

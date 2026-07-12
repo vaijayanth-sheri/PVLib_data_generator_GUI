@@ -1,105 +1,43 @@
-# PVLib Data Generator GUI
+# PVLib GUI - Solar Energy Yield Assessment
 
-**PVLib_data_generator_GUI** is a lightweight, open-source dashboard for simulating photovoltaic (PV) system generation data using [pvlib-python](https://github.com/pvlib/pvlib-python) and open weather sources.  
+A modern, highly interactive, and extremely performant Solar PV simulation dashboard powered by **PVLib-Python** on the backend and **React + Vite** on the frontend.
 
-It provides a clean GUI (built with Streamlit) to fetch, harmonize, and simulate PV production time series, returning KPIs, plots, and professional PDF reports.
+## Overview
+This application provides engineering-grade solar PV modeling and yield assessment through a beautiful, seamless interface. 
+It entirely replaces the previous Streamlit version with a blazing-fast decoupled architecture, allowing for instantaneous client-side UI rendering alongside heavy numerical computing on the server.
 
----
+### Features
+- **Interactive Site Selection:** Leaflet map integration and OpenStreetMap (Nominatim) search with automatic coordinate and timezone extraction.
+- **Dynamic Weather APIs:** Automatically fetches hourly TMY/weather data from PVGIS or OpenMeteo based on the selected location.
+- **Expert Mode Configuration:** Offers granular system sizing, azimuth, tilt, and comprehensive access to the CEC Modules and Sandia Inverters databases.
+- **High-Performance Analytics:** 8760 hourly data points computed instantaneously and aggregated via Pandas into Hourly, Daily, and Monthly profiles without browser lag.
+- **Interactive Visualizations:** Deep zoom, pan, and hover support across all time series via `react-plotly.js`.
+- **Corporate Report Generation:** One-click, fully-branded PDF engineering report generation (powered by `jsPDF`) and raw CSV extraction.
 
-## ✨ Features
+## Tech Stack
+- **Frontend:** React, Vite, Plotly.js, Leaflet, jsPDF, Tailwind-inspired pure CSS.
+- **Backend:** FastAPI, Python, PVLib, Pandas, Uvicorn.
 
-- **Weather sources supported**  
-  - **PVGIS Hourly** (2005–2023, Europe-focused, includes DNI/DHI & met)  
-  - **PVGIS TMY** (Typical Meteorological Year, 8760 hrs)  
-  - **NASA POWER** (global GHI + met; DNI/DHI derived via DIRINT/ERBS)  
-  - **CSV / EPW uploads** (CSV with interactive column mapping; EPW auto-parsed)
+## Getting Started
 
-- **PV System modeling**  
-  - Based on **PVWatts v5** in pvlib 0.13  
-  - Irradiance transposition: Hay-Davies or Perez  
-  - Temperature model: Faiman (fixed)  
-  - Losses model: PVWatts lumped losses  
-
-- **Outputs**  
-  - Hourly AC power timeseries (kW)   
-  - Key performance indicators: Annual kWh, PR, Capacity Factor  
-  - Provenance + configuration JSON  
-  - Professional multi-page PDF report with charts, tables, provenance, and system info  
-
-- **UI**  
-  - Streamlit-based, modular step-by-step workflow  
-  - Sidebar navigation  
-  - Configurable system (DC size, tilt, azimuth, AC/DC ratio, albedo, losses)  
-
----
-
-## 🛠 Project Structure
-
+### 1. Backend Setup
+The FastAPI server handles all the complex PVLib model chain processing and data manipulation.
 ```bash
-PVLib_GUI/
-│
-├── .streamlit/
-│ ├──  config.toml
-├── data_cache/
-│ ├──  .gitkeep
-├── app/              
-│ ├── report.py       # Report generator
-├── core/             # Core modeling + utilities
-│ ├── model.py        # PV system definition + PVWatts simulation
-│ ├── adapters.py     # Data fetchers (PVGIS, NASA, EPW/CSV)
-│ ├── irradiance.py   # Derived DNI/DHI calculations
-│ ├── mapping.py      # Column mapping + unit harmonization
-│ ├── cache.py        # Local cache for downloaded data
-│ ├── timeutils.py    # Timezone helpers
-│
-├── main.py           # Main dashboard
-├── requirements.txt  # Python dependencies
-├── README.md  
-```
-
----
-
-## ⚡️ Installation & Usage
-
-#### 1. Clone repository
-```bash
-git clone https://github.com/vaijayanth-sheri/PVLib_data_generator_GUI.git
-cd PVLib_data_generator_GUI
-```
-#### 2. Setup Python environment
-
-Recommended: Python 3.10 or 3.11 (tested with pvlib 0.13.0)
-
-```bash
-python -m venv venv
-source venv/bin/activate   # On Linux/macOS
-venv\Scripts\activate      # On Windows
-```
-#### 3. Install dependencies
-```bash
+# Install Python dependencies
 pip install -r requirements.txt
+
+# Start the FastAPI server (runs on port 8000)
+python -m uvicorn api.index:app --reload
 ```
-#### 4. Run the dashboard
+
+### 2. Frontend Setup
+The Vite development server runs the React client.
 ```bash
-streamlit run app/main.py
+# Install Node dependencies
+npm install
+
+# Start the Vite server (runs on port 5173)
+npm run dev
 ```
-Then open your browser at http://localhost:8501.
 
-## 🤝 Contributing
-
-- Pull requests are welcome!
-- Fork the repo
-- Create a feature branch (git checkout -b feature/my-feature)
-- Commit changes (git commit -m "Add new feature")
-- Push (git push origin feature/my-feature)
-- Open a PR 🎉
-
-## 📜 License
-
-This project is licensed under the MIT License — see the LICENSE file for details.
-
-## 👤 Author
-
-Developed by Vaijayanth Sheri 
-
-
+Navigate to `http://localhost:5173` to start modeling!
