@@ -1,0 +1,15 @@
+[project]
+name = "pvlib-gui"
+version = "0.1.0"
+requires-python = "==3.12.*"
+dependencies = [
+    "pvlib>=0.13,<0.14",
+    "pandas==2.1.4",
+    "numpy==1.26.4",
+    "scipy==1.11.4",
+    "requests>=2.31",
+    "geopy>=2.4",
+    "fastapi>=0.100.0",
+    "python-multipart>=0.0.6",
+    "python-dateutil>=2.9"
+]
