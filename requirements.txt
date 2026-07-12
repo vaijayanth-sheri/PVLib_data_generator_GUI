@@ -2,7 +2,6 @@ pvlib>=0.13,<0.14
 pandas>=2.1
 numpy>=1.26
 requests>=2.31
-meteostat>=1.6
 geopy>=2.4
 
 fastapi>=0.100.0

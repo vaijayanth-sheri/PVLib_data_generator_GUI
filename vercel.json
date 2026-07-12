@@ -1,6 +1,11 @@
 {
   "name": "pvlib-gui",
   "framework": "vite",
+  "functions": {
+    "api/**/*.py": {
+      "excludeFiles": "node_modules/**"
+    }
+  },
   "rewrites": [
     {
       "source": "/api/(.*)",
