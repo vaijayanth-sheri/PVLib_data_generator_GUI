@@ -1,12 +1,16 @@
 from __future__ import annotations
 import pandas as pd
-from timezonefinder import TimezoneFinder
-
-_tf = TimezoneFinder(in_memory=True)
+import requests
 
 def tz_name_from_latlon(lat: float, lon: float) -> str:
-    tz = _tf.timezone_at(lat=lat, lng=lon) or _tf.certain_timezone_at(lat=lat, lng=lon)
-    return tz or "UTC"
+    try:
+        url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&timezone=auto&current_weather=true"
+        res = requests.get(url, timeout=5)
+        if res.status_code == 200:
+            return res.json().get("timezone", "UTC")
+    except Exception:
+        pass
+    return "UTC"
 
 def localize_index(idx: pd.DatetimeIndex, tz_name: str) -> pd.DatetimeIndex:
     if idx.tz is None:

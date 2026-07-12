@@ -21,8 +21,7 @@ from core.adapters import fetch_pvgis_hourly, fetch_pvgis_tmy, fetch_nasa_power_
 from core.mapping import convert_to_canonical
 from core.model import SystemConfig, run_pvwatts
 from core.irradiance import derive_from_ghi
-from app.report import write_pdf, _fig_to_png_bytes
-import matplotlib.pyplot as plt
+
 
 app = FastAPI()
 
