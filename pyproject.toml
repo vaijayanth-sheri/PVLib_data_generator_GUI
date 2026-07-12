@@ -1,0 +1,15 @@
+[project]
+name = "pvlib-backend"
+version = "0.1.0"
+requires-python = "==3.12.*"
+dependencies = [
+    "pvlib>=0.11.0",
+    "pandas>=2.0.0",
+    "numpy>=1.26.0",
+    "scipy>=1.11.3",
+    "requests>=2.31.0",
+    "geopy>=2.4.1",
+    "fastparquet>=2023.10.0",
+    "fastapi>=0.100.0",
+    "python-multipart>=0.0.6"
+]

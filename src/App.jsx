@@ -8,7 +8,7 @@ import BackgroundCanvas from './components/BackgroundCanvas'
 import LocationMap from './components/LocationMap'
 import './App.css'
 
-const API_BASE = import.meta.env.VITE_API_URL || '/api'
+const API_BASE = '/api'
 
 function useDebounce(value, delay) {
   const [debouncedValue, setDebouncedValue] = useState(value);
