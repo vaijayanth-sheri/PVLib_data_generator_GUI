@@ -1,11 +1,11 @@
 pvlib>=0.13,<0.14
-pandas>=2.1
-numpy>=1.26
+pandas==1.5.3
+scipy==1.7.3
+numpy==1.22.4
 requests>=2.31
 geopy>=2.4
 
 fastapi>=0.100.0
-uvicorn>=0.23.0
 python-multipart>=0.0.6
 
 python-dateutil>=2.9
