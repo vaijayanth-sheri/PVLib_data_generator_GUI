@@ -1,0 +1,15 @@
+node_modules/
+dist/
+dist-ssr/
+.git/
+.vscode/
+.idea/
+.env
+.vercel/
+.venv*
+src/
+public/
+index.html
+vite.config.js
+package.json
+package-lock.json

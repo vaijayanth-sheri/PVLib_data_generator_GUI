@@ -1,3 +1,12 @@
+---
+title: PVLib GUI Backend
+emoji: ☀️
+colorFrom: yellow
+colorTo: orange
+sdk: docker
+app_port: 7860
+---
+
 # PVLib GUI - Solar Energy Yield Assessment
 
 A modern, highly interactive, and extremely performant Solar PV simulation dashboard powered by **PVLib-Python** on the backend and **React + Vite** on the frontend.
