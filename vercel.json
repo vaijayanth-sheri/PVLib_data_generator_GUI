@@ -3,12 +3,7 @@
   "framework": "vite",
   "functions": {
     "api/**/*.py": {
-      "excludeFiles": [
-        "node_modules/**",
-        ".vercel/**/tests/**",
-        ".vercel/**/test/**",
-        ".vercel/**/__pycache__/**"
-      ]
+      "excludeFiles": "{node_modules/**,**/*/tests/**,**/*/test/**,**/*/__pycache__/**,**/*.c,**/*.h,**/*.cpp,**/*.pyx,**/*.pxd,**/*.pyc}"
     }
   },
   "rewrites": [
